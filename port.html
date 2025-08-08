@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj Srivastava - Cybersecurity Portfolio</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --card-bg: white;
+        }
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .dark-mode {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #2ecc71;
+            --light: #34495e;
+            --dark: #ecf0f1;
+            --bg-color: #1a252f;
+            --text-color: #ecf0f1;
+            --card-bg: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .profile-info {
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            order: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+        
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 15px 0 10px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .skill-category h4 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .job-title, .project-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .company, .project-duration {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .duration {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            list-style-type: none;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .certificate-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .certificate-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .certificate-info {
+            padding: 15px;
+        }
+        
+        .certificate-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .certificate-issuer {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            position: relative;
+            animation: modalopen 0.4s;
+        }
+        
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+        
+        .close-btn:hover {
+            color: var(--primary);
+        }
+        
+        .modal-img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+        
+        .modal-title {
+            margin: 15px 0;
+            color: var(--primary);
+        }
+        
+        .internship-details {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .achievement-item {
+            background: linear-gradient(to right, var(--light), var(--card-bg));
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .institution {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .degree {
+            font-style: italic;
+        }
+        
+        .view-certificate {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .view-certificate:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .tool-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .language-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            margin-top: 40px;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-info {
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .certificates-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .profile-img {
+                order: 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        /* About Section Specific Styles */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#education">Education</a>
+            </div>
+            <button class="dark-mode-toggle" id="darkModeToggle">
+                <span id="darkModeIcon">🌙</span> Dark Mode
+            </button>
+        </div>
+    </nav>
+
+    <header id="about">
+        <div class="container">
+            <div class="profile">
+                <!-- Replace with your actual image path -->
+                <img src="C:\Users\LENOVO\Desktop\portfolio file\WhatsApp Image 2025-08-08 at 01.27.26_84df0579.jpg" alt="Suraj Srivastava" class="profile-img" id="profileImage">
+                <div class="profile-info">
+                    <h1>Suraj Srivastava</h1>
+                    <p class="subtitle">Cybersecurity Analyst | Penetration Tester | Security Solutions Developer</p>
+                    <div class="contact-info">
+                        <a href="mailto:rajsrivastav1819@gmail.com">rajsrivastav1819@gmail.com</a>
+                        <a href="https://www.linkedin.com/in/suraj-sri/" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/8fro" target="_blank">GitHub</a>
+                        <a href="tel:+91-8268582818">+91-8268582818</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about-section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a passionate cybersecurity professional with expertise in penetration testing, vulnerability assessment, and security solutions development. My journey in cybersecurity began during my undergraduate studies when I discovered my fascination with identifying and mitigating security vulnerabilities.</p>
+                    
+                    <p>With hands-on experience in tools like Wireshark, Metasploit, and Nmap, I specialize in analyzing network traffic patterns and conducting comprehensive security audits. My internship at SSH Softech Private Limited allowed me to identify critical vulnerabilities in corporate networks and develop effective mitigation strategies.</p>
+                    
+                    <p>Beyond technical skills, I am committed to continuous learning and staying updated with the latest security threats and defense mechanisms. My goal is to contribute to building more secure digital ecosystems and protecting organizations from evolving cyber threats.</p>
+                    
+                    <p>When I'm not working on security projects, I enjoy contributing to open-source security tools and mentoring aspiring cybersecurity enthusiasts.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Core Cybersecurity Competencies</h2>
+            <div class="skills-grid">
+                <!-- Languages Section -->
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\cpp.png" alt="C++" class="skill-logo">
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\python.jpeg" alt="Python" class="skill-logo">
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools/Platforms Section -->
+                <div class="skill-category">
+                    <h4>Tools/Platforms</h4>
+                    <div class="skill-items">
+                        <!-- Security Tools -->
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\wireshark.png" alt="Wireshark" class="skill-logo">
+                            <span>Wireshark</span>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\download.jpeg" alt="Nmap" class="skill-logo">
+                            <span>Nmap</span>
+                        </div>
+                        
+                        <!-- Game Development Tools -->
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\unity.png" alt="Unity" class="skill-logo">
+                            <span>Unity 3D</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\blender.png" alt="Blender" class="skill-logo">
+                            <span>Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Skill Categories -->
+                <div class="skill-category">
+                    <h4>Offensive Security</h4>
+                    <p>Penetration Testing, Vulnerability Assessment, Threat Analysis</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Cybersecurity Internship</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">Cybersecurity Intern</div>
+                <div class="company">SSH Softech Private Limited</div>
+                <div class="duration">Feb 2025 – May 2025</div>
+                <div class="internship-details" id="internshipDetails">
+                    <ul>
+                        <li>Conducted comprehensive <strong>vulnerability assessments</strong> on corporate networks, identifying 15+ critical vulnerabilities</li>
+                        <li>Performed <strong>penetration testing</strong> using Metasploit framework, documenting findings for PCI DSS compliance</li>
+                        <li>Analyzed <strong>network traffic patterns</strong> using Wireshark, detecting 3 potential intrusion attempts</li>
+                        <li>Created security audit reports with <strong>CVSS scoring</strong> for identified vulnerabilities</li>
+                    </ul>
+                    <button class="view-certificate" 
+                            onclick="window.open('https://drive.google.com/file/d/1_VoqMYNyzRyUkgkNoLZKEb3LUq-57Hmn/view?usp=drive_link')">
+                        View Certificate
+                    </button>
+                </div>
+            </div>
+            
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <div class="job-title">Freelance YouTube SEO & Backlinking Specialist</div>
+                <div class="company">Upwork</div>
+                <div class="duration">March 2023 – May 2024</div>
+                <ul>
+                    <li>Worked with clients to improve YouTube video reach and earned over $200 from SEO freelancing</li>
+                    <li>Restored trending keywords using <a href="https://trends.google.com" target="_blank">Google Trend</a> and Tube Buddy</li>
+                    <li>Improved video titles, descriptions, and tags for better ranking</li>
+                    <li>Communicated with clients through <a href="https://www.upwork.com" target="_blank">Upwork</a> and delivered weekly progress reports</li>
+                </ul>
+                <button class="view-certificate" 
+                        onclick="window.open('https://drive.google.com/file/d/1x5APBb1_RJ9uNUUu-3QGPOq0Fh0HAR2P/view?usp=drive_link')">
+                    View Certificate
+                </button>  
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Technical Security Projects</h2>
+            <div class="experience-item">
+                <div class="project-title">Secure AI Chatbot Project</div>
+                <div class="project-duration">Feb 2024 – May 2024</div>
+                <ul>
+                    <li>Implemented <strong>end-to-end encryption</strong> using AES-256 for sensitive user data</li>
+                    <li>Designed <strong>OTP-based 2FA system</strong> reducing unauthorized access attempts by 72%</li>
+                    <li>Processed 9M+ test records through secure embedding pipelines</li>
+                    <li>Led <strong>security architecture design</strong> for HIPAA-compliant data handling</li>
+                </ul>
+                <button class="view-certificate" 
+                        onclick="window.open('https://github.com/8fro')">
+                    View GitHub
+                </button>  
+            </div>
+
+            <div class="project-item">
+                <h3>Network Security Analysis Toolkit</h3>
+                <ul>
+                    <li>Developed automated scripts for <strong>Nmap vulnerability scanning</strong> with report generation</li>
+                    <li>Created Wireshark filters for <strong>anomaly detection</strong> in TCP/IP traffic</li>
+                    <li>Implemented <strong>SIEM alert rules</strong> for common attack patterns</li>
+                </ul>
+            </div>
+            
+            <div class="project-item">
+                <h3>Health Support AI Security Framework</h3>
+                <ul>
+                    <li>Built <strong>rule-based alert system</strong> for critical health data breaches</li>
+                    <li>Designed <strong>role-based access control</strong> for sensitive patient information</li>
+                    <li>Implemented <strong>data anonymization</strong> techniques for rural health analytics</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h2>Certifications</h2>
+            <div class="certificates-container">
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022228.png', 'CompTIA Security+')">
+                    <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022228.png" alt="CompTIA Security+" class="certificate-img">
+                    <div class="certificate-info">
+                        <div class="certificate-name">CompTIA Security+ (SY0-601)</div>
+                        <div class="certificate-issuer">Cybray - May 2024</div>
+                        <button class="view-certificate" 
+                                onclick="window.open('https://drive.google.com/file/d/1lPT1vNHmzZzuo02GJZRuFv1a7snNVSea/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
+                    </div>
+                </div>
+                
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022254.png', 'CompTIA Network+')">
+                    <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022254.png" alt="CompTIA Network+" class="certificate-img">
+                    <div class="certificate-info">
+                        <div class="certificate-name">CompTIA Network+ (N10-008)</div>
+                        <div class="certificate-issuer">Cybray - May 2024</div>
+                        <button class="view-certificate" 
+                                onclick="window.open('https://drive.google.com/file/d/1fCchna0vgu9O7rW3kpUH900iGQBLyZrn/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
+                    </div>
+                </div>
+                
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022315.png', 'CompTIA Linux+')">
+                    <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022315.png" alt="CompTIA Linux+" class="certificate-img">
+                    <div class="certificate-info">
+                        <div class="certificate-name">CompTIA Linux+ (XK0-004)</div>
+                        <div class="certificate-issuer">Cybray - March 2024</div>
+                        <button class="view-certificate" 
+                                onclick="window.open('https://drive.google.com/file/d/1PmbBZGh7TbM6eZPXNtWL_eYmDjLjY6sV/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
+                    </div>
+                </div>
+                
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022547.png', 'IBM Cybersecurity')">
+                    <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022547.png" alt="IBM Cybersecurity" class="certificate-img">
+                    <div class="certificate-info">
+                        <div class="certificate-name">IBM Cybersecurity Tools & Attacks</div>
+                        <div class="certificate-issuer">Coursera - Feb 2024</div>
+                        <button class="view-certificate" 
+                                onclick="window.open('https://drive.google.com/file/d/1I0rt18MAAYw6NH-5_VJURywpuyBXz9aG/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Security Research & Achievements</h2>
+            <div class="achievement-item">
+                <p>Discovered and reported 2 <strong>zero-day vulnerabilities</strong> in educational software during internship</p>
+            </div>
+            <div class="achievement-item">
+                <p>Developed <strong>custom Wireshark plugins</strong> for malware traffic detection</p>
+            </div>
+            <div class="achievement-item">
+                <p>Authored technical blog on "Securing RAG-based AI Systems" (GitHub)</p>
+            </div>
+            
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="institution">Lovely Professional University</div>
+                <div class="degree">Bachelor of Technology - Computer Science Engineering</div>
+                <div class="duration">2022 - Present</div>
+                <p>Specialization: <strong>Network Security & Cryptography</strong></p>
+                <p>Coursework: Ethical Hacking, Secure Coding Practices, Digital Forensics</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalCertificateImg" class="modal-img" src="" alt="Certificate">
+            <h3 id="modalCertificateTitle" class="modal-title">Certificate</h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Suraj Srivastava - Cybersecurity Portfolio</p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        
+        darkModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeIcon.textContent = '☀️';
+                darkModeToggle.innerHTML = '<span id="darkModeIcon">☀️</span> Light Mode';
+            } else {
+                darkModeIcon.textContent = '🌙';
+                darkModeToggle.innerHTML = '<span id="darkModeIcon">🌙</span> Dark Mode';
+            }
+        });
+        
+        // Function to show certificate in modal
+        function showCertificate(imgSrc, title) {
+            const modal = document.getElementById('certificateModal');
+            const modalImg = document.getElementById('modalCertificateImg');
+            const modalTitle = document.getElementById('modalCertificateTitle');
+            
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title || 'Certificate';
+            modal.style.display = 'block';
+            
+            // Close modal when clicking outside the content
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+        
+        // Function to close modal
+        function closeModal() {
+            document.getElementById('certificateModal').style.display = 'none';
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Highlight active navigation link
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
