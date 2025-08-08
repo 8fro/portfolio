@@ -16,22 +16,22 @@
             --card-bg: white;
         }
         .skill-items {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.skill-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.skill-logo {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-}
+        .skill-logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
 
         .dark-mode {
             --primary: #3498db;
@@ -62,6 +62,42 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
         }
         
         header {
@@ -429,16 +465,62 @@
             .profile-img {
                 order: 0;
             }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        /* About Section Specific Styles */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#education">Education</a>
+            </div>
             <button class="dark-mode-toggle" id="darkModeToggle">
                 <span id="darkModeIcon">🌙</span> Dark Mode
             </button>
-            
+        </div>
+    </nav>
+
+    <header id="about">
+        <div class="container">
             <div class="profile">
                 <!-- Replace with your actual image path -->
                 <img src="C:\Users\LENOVO\Desktop\portfolio file\WhatsApp Image 2025-08-08 at 01.27.26_84df0579.jpg" alt="Suraj Srivastava" class="profile-img" id="profileImage">
@@ -456,64 +538,75 @@
         </div>
     </header>
 
-    <section id="skills">
-    <h2>Core Cybersecurity Competencies</h2>
-    <div class="skills-grid">
-        <!-- Languages Section -->
-        <div class="skill-category">
-            <h4>Languages</h4>
-            <div class="skill-items">
-                <div class="skill-item">
-                    <img src="C:\Users\LENOVO\Desktop\portfolio file\cpp.png" alt="C++" class="skill-logo">
-                    <span>C++</span>
-                </div>
-                <div class="skill-item">
-                    <img src="C:\Users\LENOVO\Desktop\portfolio file\python.jpeg" alt="Python" class="skill-logo">
-                    <span>Python</span>
-                </div>
-                
-            </div>
-        </div>
-
-        <!-- Tools/Platforms Section -->
-        <div class="skill-category">
-            <h4>Tools/Platforms</h4>
-            <div class="skill-items">
-                <!-- Security Tools -->
-                <div class="skill-item">
-                    <img src="C:\Users\LENOVO\Desktop\portfolio file\wireshark.png" alt="Wireshark" class="skill-logo">
-                    <span>Wireshark</span>
-                </div>
-                
-                <div class="skill-item">
-                    <img src="C:\Users\LENOVO\Desktop\portfolio file\download.jpeg" alt="Nmap" class="skill-logo">
-                    <span>Nmap</span>
-                </div>
-                
-                <!-- Game Development Tools -->
-                <div class="skill-item">
-                    <img src="C:\Users\LENOVO\Desktop\portfolio file\unity.png" alt="Unity" class="skill-logo">
-                    <span>Unity 3D</span>
-                </div>
-                <div class="skill-item">
-                    <img src="C:\Users\LENOVO\Desktop\portfolio file\blender.png" alt="Blender" class="skill-logo">
-                    <span>Blender</span>
+    <div class="container">
+        <!-- About Section -->
+        <section id="about-section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a passionate cybersecurity professional with expertise in penetration testing, vulnerability assessment, and security solutions development. My journey in cybersecurity began during my undergraduate studies when I discovered my fascination with identifying and mitigating security vulnerabilities.</p>
+                    
+                    <p>With hands-on experience in tools like Wireshark, Metasploit, and Nmap, I specialize in analyzing network traffic patterns and conducting comprehensive security audits. My internship at SSH Softech Private Limited allowed me to identify critical vulnerabilities in corporate networks and develop effective mitigation strategies.</p>
+                    
+                    <p>Beyond technical skills, I am committed to continuous learning and staying updated with the latest security threats and defense mechanisms. My goal is to contribute to building more secure digital ecosystems and protecting organizations from evolving cyber threats.</p>
+                    
+                    <p>When I'm not working on security projects, I enjoy contributing to open-source security tools and mentoring aspiring cybersecurity enthusiasts.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Other Skill Categories -->
-      <div class="skill-category">
-            <h4>Offensive Security</h4>
-            <p>Penetration Testing, Vulnerability Assessment, Threat Analysis</p>
-        </div>
-        
-        <div class="skill-category">
-            <h4>Game Development</h4>
-            <p>3D Modeling, Game Logic, Physics-based Interactions</p>
-        </div>
-    </div>
-</section>
+        <section id="skills">
+            <h2>Core Cybersecurity Competencies</h2>
+            <div class="skills-grid">
+                <!-- Languages Section -->
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\cpp.png" alt="C++" class="skill-logo">
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\python.jpeg" alt="Python" class="skill-logo">
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools/Platforms Section -->
+                <div class="skill-category">
+                    <h4>Tools/Platforms</h4>
+                    <div class="skill-items">
+                        <!-- Security Tools -->
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\wireshark.png" alt="Wireshark" class="skill-logo">
+                            <span>Wireshark</span>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\download.jpeg" alt="Nmap" class="skill-logo">
+                            <span>Nmap</span>
+                        </div>
+                        
+                        <!-- Game Development Tools -->
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\unity.png" alt="Unity" class="skill-logo">
+                            <span>Unity 3D</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="C:\Users\LENOVO\Desktop\portfolio file\blender.png" alt="Blender" class="skill-logo">
+                            <span>Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Skill Categories -->
+                <div class="skill-category">
+                    <h4>Offensive Security</h4>
+                    <p>Penetration Testing, Vulnerability Assessment, Threat Analysis</p>
+                </div>
+            </div>
+        </section>
 
         <section id="experience">
             <h2>Cybersecurity Internship</h2>
@@ -529,12 +622,14 @@
                         <li>Analyzed <strong>network traffic patterns</strong> using Wireshark, detecting 3 potential intrusion attempts</li>
                         <li>Created security audit reports with <strong>CVSS scoring</strong> for identified vulnerabilities</li>
                     </ul>
-<button class="view-certificate" 
-        onclick="window.open('https://drive.google.com/file/d/1_VoqMYNyzRyUkgkNoLZKEb3LUq-57Hmn/view?usp=drive_link')">
-    View Certificate
-</button>                </div>
+                    <button class="view-certificate" 
+                            onclick="window.open('https://drive.google.com/file/d/1_VoqMYNyzRyUkgkNoLZKEb3LUq-57Hmn/view?usp=drive_link')">
+                        View Certificate
+                    </button>
+                </div>
             </div>
-<h2>Experience</h2>
+            
+            <h2>Experience</h2>
             <div class="experience-item">
                 <div class="job-title">Freelance YouTube SEO & Backlinking Specialist</div>
                 <div class="company">Upwork</div>
@@ -546,11 +641,10 @@
                     <li>Communicated with clients through <a href="https://www.upwork.com" target="_blank">Upwork</a> and delivered weekly progress reports</li>
                 </ul>
                 <button class="view-certificate" 
-        onclick="window.open('https://drive.google.com/file/d/1x5APBb1_RJ9uNUUu-3QGPOq0Fh0HAR2P/view?usp=drive_link')">
-    View Certificate
-</button>  
+                        onclick="window.open('https://drive.google.com/file/d/1x5APBb1_RJ9uNUUu-3QGPOq0Fh0HAR2P/view?usp=drive_link')">
+                    View Certificate
+                </button>  
             </div>
-            
         </section>
 
         <section id="projects">
@@ -565,11 +659,11 @@
                     <li>Led <strong>security architecture design</strong> for HIPAA-compliant data handling</li>
                 </ul>
                 <button class="view-certificate" 
-        onclick="window.open('https://github.com/8fro')">
-    View GitHub
-</button>  
+                        onclick="window.open('https://github.com/8fro')">
+                    View GitHub
+                </button>  
             </div>
-            
+
             <div class="project-item">
                 <h3>Network Security Analysis Toolkit</h3>
                 <ul>
@@ -590,53 +684,53 @@
         </section>
 
         <section id="certificates">
-            <h2> Certifications</h2>
+            <h2>Certifications</h2>
             <div class="certificates-container">
-                <div>
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022228.png', 'CompTIA Security+')">
                     <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022228.png" alt="CompTIA Security+" class="certificate-img">
                     <div class="certificate-info">
                         <div class="certificate-name">CompTIA Security+ (SY0-601)</div>
                         <div class="certificate-issuer">Cybray - May 2024</div>
                         <button class="view-certificate" 
-        onclick="window.open('https://drive.google.com/file/d/1lPT1vNHmzZzuo02GJZRuFv1a7snNVSea/view?usp=drive_link')">
-    View Certificate
-</button>  
+                                onclick="window.open('https://drive.google.com/file/d/1lPT1vNHmzZzuo02GJZRuFv1a7snNVSea/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
                     </div>
                 </div>
                 
-                <div>
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022254.png', 'CompTIA Network+')">
                     <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022254.png" alt="CompTIA Network+" class="certificate-img">
                     <div class="certificate-info">
                         <div class="certificate-name">CompTIA Network+ (N10-008)</div>
                         <div class="certificate-issuer">Cybray - May 2024</div>
                         <button class="view-certificate" 
-        onclick="window.open('https://drive.google.com/file/d/1fCchna0vgu9O7rW3kpUH900iGQBLyZrn/view?usp=drive_link')">
-    View Certificate
-</button>  
+                                onclick="window.open('https://drive.google.com/file/d/1fCchna0vgu9O7rW3kpUH900iGQBLyZrn/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
                     </div>
                 </div>
                 
-                <div>
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022315.png', 'CompTIA Linux+')">
                     <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022315.png" alt="CompTIA Linux+" class="certificate-img">
                     <div class="certificate-info">
                         <div class="certificate-name">CompTIA Linux+ (XK0-004)</div>
                         <div class="certificate-issuer">Cybray - March 2024</div>
                         <button class="view-certificate" 
-        onclick="window.open('https://drive.google.com/file/d/1PmbBZGh7TbM6eZPXNtWL_eYmDjLjY6sV/view?usp=drive_link')">
-    View Certificate
-</button>  
+                                onclick="window.open('https://drive.google.com/file/d/1PmbBZGh7TbM6eZPXNtWL_eYmDjLjY6sV/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
                     </div>
                 </div>
                 
-                <div>
+                <div class="certificate-card" onclick="showCertificate('C:\\Users\\LENOVO\\Desktop\\portfolio file\\Screenshot 2025-08-08 022547.png', 'IBM Cybersecurity')">
                     <img src="C:\Users\LENOVO\Desktop\portfolio file\Screenshot 2025-08-08 022547.png" alt="IBM Cybersecurity" class="certificate-img">
                     <div class="certificate-info">
                         <div class="certificate-name">IBM Cybersecurity Tools & Attacks</div>
                         <div class="certificate-issuer">Coursera - Feb 2024</div>
                         <button class="view-certificate" 
-        onclick="window.open('https://drive.google.com/file/d/1I0rt18MAAYw6NH-5_VJURywpuyBXz9aG/view?usp=drive_link')">
-    View Certificate
-</button>  
+                                onclick="window.open('https://drive.google.com/file/d/1I0rt18MAAYw6NH-5_VJURywpuyBXz9aG/view?usp=drive_link')">
+                            View Certificate
+                        </button>  
                     </div>
                 </div>
             </div>
@@ -653,8 +747,7 @@
             <div class="achievement-item">
                 <p>Authored technical blog on "Securing RAG-based AI Systems" (GitHub)</p>
             </div>
-            <div class="achievement-item">
-                <p>Ranked in top 5% in <strong>TryHackMe</strong> cybersecurity challenges</p>
+            
             </div>
         </section>
 
@@ -730,39 +823,35 @@
             document.getElementById('certificateModal').style.display = 'none';
         }
         
-        // Add hover effect to certificate cards
-        document.querySelectorAll('.certificate-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
-            });
-        });
-        
-        // Add hover effect to view certificate buttons
-        document.querySelectorAll('.view-certificate').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
-                this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'none';
-            });
-        });
-        
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+        
+        // Highlight active navigation link
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>
