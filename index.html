@@ -15,6 +15,28 @@
             --text-color: #333;
             --card-bg: white;
         }
+        .cv-download {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.cv-download a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: white;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.cv-download a:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
         .skill-items {
             display: flex;
             flex-direction: column;
@@ -538,22 +560,28 @@
         </div>
     </header>
 
-    <div class="container">
-        <!-- About Section -->
-        <section id="about-section">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am a passionate cybersecurity professional with expertise in penetration testing, vulnerability assessment, and security solutions development. My journey in cybersecurity began during my undergraduate studies when I discovered my fascination with identifying and mitigating security vulnerabilities.</p>
-                    
-                    <p>With hands-on experience in tools like Wireshark, Metasploit, and Nmap, I specialize in analyzing network traffic patterns and conducting comprehensive security audits. My internship at SSH Softech Private Limited allowed me to identify critical vulnerabilities in corporate networks and develop effective mitigation strategies.</p>
-                    
-                    <p>Beyond technical skills, I am committed to continuous learning and staying updated with the latest security threats and defense mechanisms. My goal is to contribute to building more secure digital ecosystems and protecting organizations from evolving cyber threats.</p>
-                    
-                    <p>When I'm not working on security projects I enjoy contributing to open-source security tools and mentoring aspiring cybersecurity enthusiasts.</p>
-                </div>
+   <!-- About Section -->
+<section id="about-section">
+    <h2>About Me</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <p>I am a passionate cybersecurity professional with expertise in penetration testing, vulnerability assessment, and security solutions development. My journey in cybersecurity began during my undergraduate studies when I discovered my fascination with identifying and mitigating security vulnerabilities.</p>
+            
+            <p>With hands-on experience in tools like Wireshark, Metasploit, and Nmap, I specialize in analyzing network traffic patterns and conducting comprehensive security audits. My internship at SSH Softech Private Limited allowed me to identify critical vulnerabilities in corporate networks and develop effective mitigation strategies.</p>
+            
+            <p>Beyond technical skills, I am committed to continuous learning and staying updated with the latest security threats and defense mechanisms. My goal is to contribute to building more secure digital ecosystems and protecting organizations from evolving cyber threats.</p>
+            
+            <p>When I'm not working on security projects I enjoy contributing to open-source security tools and mentoring aspiring cybersecurity enthusiasts.</p>
+            
+            <!-- CV Download Button -->
+            <div class="cv-download" style="margin-top: 20px;">
+                <a href="path/to/your-cv.pdf" download="Suraj_Srivastava_CV.pdf" class="view-certificate" style="display: inline-block; text-decoration: none;">
+                    <i class="fas fa-download"></i> Download My CV
+                </a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <section id="skills">
             <h2>Core Cybersecurity Competencies</h2>
